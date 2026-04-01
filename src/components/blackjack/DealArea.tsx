@@ -17,10 +17,10 @@ interface DealAreaProps {
 }
 
 const ACTIONS: { action: Action; label: string; key: string }[] = [
-  { action: "H", label: "HIT", key: "h" },
-  { action: "S", label: "STAND", key: "s" },
-  { action: "D", label: "DOUBLE", key: "d" },
-  { action: "P", label: "SPLIT", key: "p" },
+  { action: "H", label: "HIT", key: "H" },
+  { action: "S", label: "STAND", key: "S" },
+  { action: "D", label: "DOUBLE", key: "D" },
+  { action: "P", label: "SPLIT", key: "P" },
 ];
 
 export default function DealArea({
@@ -41,7 +41,7 @@ export default function DealArea({
         <div className="text-xs text-white/50 tracking-[2px] mb-3">
           DEALER SHOWS
         </div>
-        <div className="inline-flex gap-2">
+        <div className="inline-flex gap-3">
           {dealerCards.map((card, i) => (
             <PlayingCard
               key={i}
@@ -53,21 +53,26 @@ export default function DealArea({
       </div>
 
       {/* Player */}
-      <div className="text-center mb-6">
+      <div className="text-center mb-8">
         <div className="text-xs text-white/50 tracking-[2px] mb-3">
-          YOUR HAND — {isSoft ? "SOFT " : ""}
-          {playerTotal}
+          YOUR HAND
         </div>
-        <div className="inline-flex gap-2">
+        <div className="inline-flex gap-3 mb-4">
           {playerCards.map((card, i) => (
             <PlayingCard key={i} card={card} />
           ))}
         </div>
+        {/* Hand total — prominent */}
+        <div className="flex items-center justify-center gap-2">
+          <span className="text-3xl font-bold text-white">
+            {isSoft && playerTotal <= 21 ? "SOFT " : ""}{playerTotal}
+          </span>
+        </div>
       </div>
 
       {/* Actions */}
-      <div className="flex justify-center gap-2 flex-wrap">
-        {ACTIONS.map(({ action, label }) => {
+      <div className="flex justify-center gap-3 flex-wrap mb-3">
+        {ACTIONS.map(({ action, label, key }) => {
           const isDisabled =
             disabled ||
             (action === "P" && !canSplit);
@@ -76,13 +81,16 @@ export default function DealArea({
               key={action}
               onClick={() => !isDisabled && onAction(action)}
               disabled={isDisabled}
-              className={`text-sm px-6 py-3 border font-bold tracking-[1px] transition-colors ${
+              className={`text-base px-8 py-4 border-2 font-bold tracking-[2px] transition-colors min-w-[100px] ${
                 isDisabled
                   ? "bg-black/20 text-white/30 border-white/10 cursor-not-allowed"
-                  : "bg-black/40 text-white border-white/20 hover:bg-black/60"
+                  : "bg-black/40 text-white border-white/30 hover:bg-black/60 hover:border-white/60"
               }`}
             >
-              {label}
+              <span className="block">{label}</span>
+              <span className="block text-xs font-normal text-white/40 mt-0.5 tracking-normal">
+                [{key}]
+              </span>
             </button>
           );
         })}
@@ -90,15 +98,23 @@ export default function DealArea({
           <button
             onClick={() => !disabled && onAction("Rh")}
             disabled={disabled}
-            className={`text-sm px-6 py-3 border font-bold tracking-[1px] transition-colors ${
+            className={`text-base px-8 py-4 border-2 font-bold tracking-[2px] transition-colors min-w-[100px] ${
               disabled
                 ? "bg-black/20 text-white/30 border-white/10 cursor-not-allowed"
-                : "bg-black/40 text-white border-white/20 hover:bg-black/60"
+                : "bg-black/40 text-white border-white/30 hover:bg-black/60 hover:border-white/60"
             }`}
           >
-            SURRENDER
+            <span className="block">SURRENDER</span>
+            <span className="block text-xs font-normal text-white/40 mt-0.5 tracking-normal">
+              [R]
+            </span>
           </button>
         )}
+      </div>
+
+      {/* Keyboard hint */}
+      <div className="text-center text-xs text-white/30 tracking-[1px]">
+        PRESS ANY KEY AFTER FEEDBACK TO DEAL NEXT HAND
       </div>
     </div>
   );
