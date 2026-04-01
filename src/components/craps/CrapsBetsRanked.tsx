@@ -21,7 +21,7 @@ export default function CrapsBetsRanked() {
                 HOUSE EDGE
               </th>
               <th className="text-right py-2 text-xs text-ck-text-muted font-normal tracking-[1px]">
-                VERDICT
+                HOUSE EDGE LEVEL
               </th>
             </tr>
           </thead>

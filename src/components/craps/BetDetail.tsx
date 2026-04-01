@@ -7,10 +7,10 @@ interface BetDetailProps {
 }
 
 function getVerdict(edge: number): { label: string; color: string; bg: string; border: string } {
-  if (edge === 0) return { label: "ZERO HOUSE EDGE ✓", color: "#4ade80", bg: "rgba(74,222,128,0.12)", border: "rgba(74,222,128,0.4)" };
-  if (edge <= 0.015) return { label: "GOOD BET ✓", color: "#4ade80", bg: "rgba(74,222,128,0.12)", border: "rgba(74,222,128,0.4)" };
-  if (edge <= 0.04) return { label: "OK BET —", color: "#eab308", bg: "rgba(234,179,8,0.10)", border: "rgba(234,179,8,0.35)" };
-  return { label: "AVOID ✗", color: "#ef4444", bg: "rgba(239,68,68,0.12)", border: "rgba(239,68,68,0.4)" };
+  if (edge === 0) return { label: "NO HOUSE EDGE", color: "#4ade80", bg: "rgba(74,222,128,0.12)", border: "rgba(74,222,128,0.4)" };
+  if (edge <= 0.015) return { label: "LOW HOUSE EDGE", color: "#4ade80", bg: "rgba(74,222,128,0.12)", border: "rgba(74,222,128,0.4)" };
+  if (edge <= 0.04) return { label: "MODERATE HOUSE EDGE", color: "#eab308", bg: "rgba(234,179,8,0.10)", border: "rgba(234,179,8,0.35)" };
+  return { label: "HIGH HOUSE EDGE", color: "#ef4444", bg: "rgba(239,68,68,0.12)", border: "rgba(239,68,68,0.4)" };
 }
 
 export default function BetDetail({ bet, avgBet = 25 }: BetDetailProps) {

@@ -508,12 +508,12 @@ export function edgeToRating(edge: number): 1 | 2 | 3 | 4 | 5 {
 // Helper to get text verdict
 export function edgeToVerdict(edge: number): string {
   const pct = edge * 100;
-  if (pct === 0) return "ALWAYS";
-  if (pct <= 0.5) return "GREAT";
-  if (pct <= 1.5) return "GOOD";
-  if (pct <= 3) return "OK";
-  if (pct <= 5) return "MEH";
-  if (pct <= 10) return "BAD";
-  if (pct <= 15) return "SUCKER";
-  return "WORST";
+  if (pct === 0) return "NONE";
+  if (pct <= 0.5) return "VERY LOW";
+  if (pct <= 1.5) return "LOW";
+  if (pct <= 3) return "MODERATE";
+  if (pct <= 5) return "ABOVE AVG";
+  if (pct <= 10) return "HIGH";
+  if (pct <= 15) return "VERY HIGH";
+  return "EXTREME";
 }

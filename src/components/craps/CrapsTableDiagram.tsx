@@ -174,15 +174,15 @@ export default function CrapsTableDiagram({
       <div className="flex justify-center gap-4 mt-4 flex-wrap">
         <span className="text-xs text-white/70 flex items-center gap-1.5">
           <span className="inline-block w-3 h-3 rounded-sm bg-green-400/60 border border-green-400/80" />
-          GOOD BET
+          LOW HOUSE EDGE
         </span>
         <span className="text-xs text-white/70 flex items-center gap-1.5">
           <span className="inline-block w-3 h-3 rounded-sm bg-yellow-400/50 border border-yellow-400/70" />
-          OK
+          MODERATE
         </span>
         <span className="text-xs text-white/70 flex items-center gap-1.5">
           <span className="inline-block w-3 h-3 rounded-sm bg-red-500/60 border border-red-500/80" />
-          SUCKER BET
+          HIGH HOUSE EDGE
         </span>
       </div>
     </div>
