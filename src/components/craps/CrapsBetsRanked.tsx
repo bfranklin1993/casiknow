@@ -7,20 +7,20 @@ export default function CrapsBetsRanked() {
 
   return (
     <div className="px-7 py-6 border-t border-ck-border-subtle">
-      <div className="text-[10px] text-ck-accent tracking-[1px] mb-3">
+      <div className="text-xs text-ck-accent tracking-[1px] mb-3">
         ALL CRAPS BETS RANKED
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full text-xs">
+        <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-ck-border">
-              <th className="text-left py-2 text-[10px] text-ck-text-muted font-normal tracking-[1px]">
+              <th className="text-left py-2 text-xs text-ck-text-muted font-normal tracking-[1px]">
                 BET
               </th>
-              <th className="text-right py-2 text-[10px] text-ck-text-muted font-normal tracking-[1px]">
-                EDGE
+              <th className="text-right py-2 text-xs text-ck-text-muted font-normal tracking-[1px]">
+                HOUSE EDGE
               </th>
-              <th className="text-right py-2 text-[10px] text-ck-text-muted font-normal tracking-[1px]">
+              <th className="text-right py-2 text-xs text-ck-text-muted font-normal tracking-[1px]">
                 VERDICT
               </th>
             </tr>

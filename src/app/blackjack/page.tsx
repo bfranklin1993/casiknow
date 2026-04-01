@@ -156,10 +156,10 @@ export default function BlackjackPage() {
       {/* Header */}
       <div className="border-b border-ck-border px-7 py-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-base font-bold text-ck-accent tracking-[3px]">
+          <h1 className="text-xl font-bold text-ck-accent tracking-[3px]">
             BLACKJACK TRAINER
           </h1>
-          <span className="text-[11px] text-ck-text-dim">BASIC STRATEGY</span>
+          <span className="text-xs text-ck-text-dim">BASIC STRATEGY</span>
         </div>
       </div>
 

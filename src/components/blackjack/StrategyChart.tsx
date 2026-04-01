@@ -51,7 +51,7 @@ export default function StrategyChart({
   return (
     <div className="border-t border-ck-border-subtle px-7 py-5">
       <div className="flex items-center justify-between mb-3">
-        <div className="text-[10px] text-ck-accent tracking-[1px]">
+        <div className="text-xs text-ck-accent tracking-[1px]">
           STRATEGY CHART — 6 DECK, S17, DAS
         </div>
         <div className="flex gap-1.5">
@@ -59,7 +59,7 @@ export default function StrategyChart({
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`text-[10px] px-2.5 py-1 tracking-[1px] ${
+              className={`text-xs px-2.5 py-1 tracking-[1px] ${
                 tab === t
                   ? "bg-ck-accent text-ck-bg font-bold"
                   : "bg-ck-border-subtle text-ck-text-secondary"
@@ -72,10 +72,10 @@ export default function StrategyChart({
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-[11px] text-center">
+        <table className="w-full text-xs text-center">
           <thead>
             <tr>
-              <th className="py-1.5 px-1 text-left text-ck-text-muted font-normal text-[10px]">
+              <th className="py-1.5 px-1 text-left text-ck-text-muted font-normal text-xs">
                 YOU ╲ DEALER
               </th>
               {DEALER_CARDS.map((d, i) => (
@@ -131,7 +131,7 @@ export default function StrategyChart({
         </table>
       </div>
 
-      <div className="text-[10px] text-ck-text-faint mt-2">
+      <div className="text-xs text-ck-text-faint mt-2">
         S = STAND · H = HIT · D = DOUBLE · P = SPLIT · R = SURRENDER · HIGHLIGHTED
         = CURRENT HAND
       </div>

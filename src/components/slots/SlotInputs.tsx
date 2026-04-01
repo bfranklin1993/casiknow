@@ -27,12 +27,12 @@ export default function SlotInputs({
 }: SlotInputsProps) {
   return (
     <div className="bg-ck-bg-secondary border-b border-ck-border-subtle px-7 py-6">
-      <div className="text-[10px] text-ck-text-muted tracking-[1px] mb-4">
+      <div className="text-xs text-ck-text-muted tracking-[1px] mb-4">
         YOUR SESSION
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>
-          <div className="text-[10px] text-ck-text-secondary mb-1.5">
+          <div className="text-xs text-ck-text-secondary mb-1.5">
             BANKROLL
           </div>
           <div className="flex items-center bg-ck-border-subtle px-3.5 py-2.5">
@@ -51,7 +51,7 @@ export default function SlotInputs({
           </div>
         </div>
         <div>
-          <div className="text-[10px] text-ck-text-secondary mb-1.5">
+          <div className="text-xs text-ck-text-secondary mb-1.5">
             TIME (HOURS)
           </div>
           <div className="bg-ck-border-subtle px-3.5 py-2.5">
@@ -70,13 +70,13 @@ export default function SlotInputs({
           </div>
         </div>
         <div>
-          <div className="text-[10px] text-ck-text-secondary mb-1.5">GOAL</div>
+          <div className="text-xs text-ck-text-secondary mb-1.5">GOAL</div>
           <div className="flex flex-col gap-1">
             {GOALS.map(({ value, label }) => (
               <button
                 key={value}
                 onClick={() => onGoalChange(value)}
-                className={`text-left px-3 py-1.5 text-[11px] transition-colors ${
+                className={`text-left px-3 py-1.5 text-xs transition-colors ${
                   goal === value
                     ? "bg-ck-accent text-ck-bg font-bold"
                     : "bg-ck-border-subtle text-ck-text-secondary hover:text-ck-text-primary"

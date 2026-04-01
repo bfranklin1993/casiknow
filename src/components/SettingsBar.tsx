@@ -17,12 +17,12 @@ export default function SettingsBar({ settings }: SettingsBarProps) {
     <div className="bg-ck-bg-secondary border-b border-ck-border-subtle px-7 py-3 flex gap-6 items-center flex-wrap">
       {settings.map((setting) => (
         <div key={setting.label} className="flex items-center gap-2">
-          <span className="text-[10px] text-ck-text-muted tracking-[1px]">{setting.label}</span>
+          <span className="text-xs text-ck-text-muted tracking-[1px]">{setting.label}</span>
           {setting.type === "select" && setting.options ? (
             <select
               value={setting.value}
               onChange={(e) => setting.onChange(e.target.value)}
-              className="bg-ck-border-subtle text-ck-accent text-[13px] px-2.5 py-0.5 appearance-none cursor-pointer"
+              className="bg-ck-border-subtle text-ck-accent text-sm px-2.5 py-0.5 appearance-none cursor-pointer"
             >
               {setting.options.map((opt) => (
                 <option key={opt} value={opt}>{opt}</option>
@@ -33,7 +33,7 @@ export default function SettingsBar({ settings }: SettingsBarProps) {
               type="number"
               value={setting.value}
               onChange={(e) => setting.onChange(e.target.value)}
-              className="bg-ck-border-subtle text-ck-accent text-[13px] px-2.5 py-0.5 w-20 outline-none"
+              className="bg-ck-border-subtle text-ck-accent text-sm px-2.5 py-0.5 w-20 outline-none"
             />
           )}
         </div>

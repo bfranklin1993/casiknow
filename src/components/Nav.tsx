@@ -26,7 +26,7 @@ export default function Nav() {
             <Link
               key={href}
               href={href}
-              className={`text-xs tracking-[1px] transition-colors ${
+              className={`text-sm tracking-[1px] transition-colors ${
                 pathname === href
                   ? "text-ck-accent border-b border-ck-accent pb-0.5"
                   : "text-ck-text-secondary hover:text-ck-text-primary"
@@ -51,7 +51,7 @@ export default function Nav() {
               key={href}
               href={href}
               onClick={() => setMenuOpen(false)}
-              className={`text-xs tracking-[1px] ${
+              className={`text-sm tracking-[1px] ${
                 pathname === href ? "text-ck-accent" : "text-ck-text-secondary"
               }`}
             >

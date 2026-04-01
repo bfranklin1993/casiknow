@@ -11,10 +11,10 @@ export default function BetDetail({ bet, avgBet = 25 }: BetDetailProps) {
 
   return (
     <div className="bg-ck-bg-tertiary border-l-[3px] border-ck-accent px-5 py-4">
-      <div className="text-xs text-ck-accent tracking-[1px] mb-2.5">
+      <div className="text-sm text-ck-accent tracking-[1px] mb-2.5">
         ▼ {bet.name.toUpperCase()}
       </div>
-      <div className="text-xs text-ck-text-secondary leading-relaxed space-y-2">
+      <div className="text-sm text-ck-text-secondary leading-relaxed space-y-2">
         <div>
           <span className="text-ck-text-primary font-bold">What it is: </span>
           {bet.description}

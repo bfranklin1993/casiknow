@@ -14,7 +14,7 @@ export default function RuleConfig({ rules, onChange }: RuleConfigProps) {
         <button
           key={String(opt)}
           onClick={() => onChange({ ...rules, [key]: opt })}
-          className={`text-[11px] px-2.5 py-1 transition-colors ${
+          className={`text-xs px-2.5 py-1 transition-colors ${
             rules[key] === opt
               ? "bg-ck-accent text-ck-bg font-bold"
               : "bg-ck-border-subtle text-ck-text-secondary"
@@ -30,15 +30,15 @@ export default function RuleConfig({ rules, onChange }: RuleConfigProps) {
     <div className="border-b border-ck-border px-7 py-4">
       <div className="flex gap-4 flex-wrap items-center">
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-ck-text-muted">PAYOUT</span>
+          <span className="text-xs text-ck-text-muted">PAYOUT</span>
           {toggle("payout", ["3:2", "6:5"])}
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-ck-text-muted">DEALER</span>
+          <span className="text-xs text-ck-text-muted">DEALER</span>
           <div className="flex gap-1.5">
             <button
               onClick={() => onChange({ ...rules, dealerHitsSoft17: false })}
-              className={`text-[11px] px-2.5 py-1 ${
+              className={`text-xs px-2.5 py-1 ${
                 !rules.dealerHitsSoft17
                   ? "bg-ck-accent text-ck-bg font-bold"
                   : "bg-ck-border-subtle text-ck-text-secondary"
@@ -48,7 +48,7 @@ export default function RuleConfig({ rules, onChange }: RuleConfigProps) {
             </button>
             <button
               onClick={() => onChange({ ...rules, dealerHitsSoft17: true })}
-              className={`text-[11px] px-2.5 py-1 ${
+              className={`text-xs px-2.5 py-1 ${
                 rules.dealerHitsSoft17
                   ? "bg-ck-accent text-ck-bg font-bold"
                   : "bg-ck-border-subtle text-ck-text-secondary"
@@ -59,16 +59,16 @@ export default function RuleConfig({ rules, onChange }: RuleConfigProps) {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-ck-text-muted">DECKS</span>
+          <span className="text-xs text-ck-text-muted">DECKS</span>
           {toggle("decks", [1, 2, 6, 8])}
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-ck-text-muted">DAS</span>
+          <span className="text-xs text-ck-text-muted">DAS</span>
           <button
             onClick={() =>
               onChange({ ...rules, doubleAfterSplit: !rules.doubleAfterSplit })
             }
-            className={`text-[11px] px-2.5 py-1 ${
+            className={`text-xs px-2.5 py-1 ${
               rules.doubleAfterSplit
                 ? "bg-ck-good text-ck-bg font-bold"
                 : "bg-ck-border-subtle text-ck-text-secondary"
@@ -78,7 +78,7 @@ export default function RuleConfig({ rules, onChange }: RuleConfigProps) {
           </button>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-ck-text-muted">SURRENDER</span>
+          <span className="text-xs text-ck-text-muted">SURRENDER</span>
           {toggle("surrender", ["none", "late"])}
         </div>
       </div>

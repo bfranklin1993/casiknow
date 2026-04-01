@@ -26,7 +26,7 @@ export default function SessionProjection({
 
   return (
     <div className="px-7 py-6 border-b border-ck-border-subtle">
-      <div className="text-[10px] text-ck-accent tracking-[1px] mb-4">
+      <div className="text-xs text-ck-accent tracking-[1px] mb-4">
         SESSION PROJECTION
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -61,7 +61,7 @@ function StatBox({
 }) {
   return (
     <div className="text-center">
-      <div className="text-[10px] text-ck-text-muted mb-1">{label}</div>
+      <div className="text-xs text-ck-text-muted mb-1">{label}</div>
       <div className={`text-xl font-bold ${color}`}>{value}</div>
     </div>
   );

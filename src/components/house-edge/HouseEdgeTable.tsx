@@ -72,10 +72,10 @@ export default function HouseEdgeTable() {
       {/* Header */}
       <div className="border-b border-ck-border px-7 py-6">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-base font-bold text-ck-accent tracking-[3px]">
+          <h1 className="text-xl font-bold text-ck-accent tracking-[3px]">
             HOUSE EDGE COMPARISON
           </h1>
-          <span className="text-[11px] text-ck-text-dim">
+          <span className="text-xs text-ck-text-dim">
             {filtered.length} BETS · {new Set(filtered.map((d) => d.game)).size}{" "}
             GAMES
           </span>
@@ -90,38 +90,38 @@ export default function HouseEdgeTable() {
       {/* Settings */}
       <div className="bg-ck-bg-secondary border-b border-ck-border-subtle px-7 py-3 flex gap-6 items-center flex-wrap">
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-ck-text-muted tracking-[1px]">
+          <span className="text-xs text-ck-text-muted tracking-[1px]">
             AVG BET
           </span>
           <div className="flex items-center bg-ck-border-subtle px-2.5 py-0.5">
-            <span className="text-ck-text-muted text-[13px]">$</span>
+            <span className="text-ck-text-muted text-sm">$</span>
             <input
               type="number"
               min={1}
               max={10000}
               value={avgBet}
               onChange={(e) => setAvgBet(Math.max(1, parseInt(e.target.value) || 1))}
-              className="bg-transparent text-ck-accent text-[13px] w-16 outline-none"
+              className="bg-transparent text-ck-accent text-sm w-16 outline-none"
             />
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-ck-text-muted tracking-[1px]">
+          <span className="text-xs text-ck-text-muted tracking-[1px]">
             SORT BY
           </span>
           <button
             onClick={() => toggleSort("edge")}
-            className={`text-[13px] px-2.5 py-0.5 ${
+            className={`text-sm px-2.5 py-0.5 ${
               sortField === "edge"
                 ? "bg-ck-accent text-ck-bg font-bold"
                 : "bg-ck-border-subtle text-ck-text-secondary"
             }`}
           >
-            EDGE{sortIndicator("edge")}
+            HOUSE EDGE{sortIndicator("edge")}
           </button>
           <button
             onClick={() => toggleSort("evPerHour")}
-            className={`text-[13px] px-2.5 py-0.5 ${
+            className={`text-sm px-2.5 py-0.5 ${
               sortField === "evPerHour"
                 ? "bg-ck-accent text-ck-bg font-bold"
                 : "bg-ck-border-subtle text-ck-text-secondary"
@@ -134,22 +134,22 @@ export default function HouseEdgeTable() {
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-xs">
+        <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-ck-border">
-              <th className="text-left px-7 py-2.5 text-[10px] text-ck-text-muted font-normal tracking-[1px]">
+              <th className="text-left px-7 py-2.5 text-xs text-ck-text-muted font-normal tracking-[1px]">
                 GAME
               </th>
-              <th className="text-left px-2 py-2.5 text-[10px] text-ck-text-muted font-normal tracking-[1px]">
+              <th className="text-left px-2 py-2.5 text-xs text-ck-text-muted font-normal tracking-[1px]">
                 BET / RULES
               </th>
-              <th className="text-right px-2 py-2.5 text-[10px] text-ck-text-muted font-normal tracking-[1px]">
-                EDGE
+              <th className="text-right px-2 py-2.5 text-xs text-ck-text-muted font-normal tracking-[1px]">
+                HOUSE EDGE
               </th>
-              <th className="text-right px-2 py-2.5 text-[10px] text-ck-text-muted font-normal tracking-[1px]">
+              <th className="text-right px-2 py-2.5 text-xs text-ck-text-muted font-normal tracking-[1px]">
                 EV/HR
               </th>
-              <th className="text-right px-7 py-2.5 text-[10px] text-ck-text-muted font-normal tracking-[1px]">
+              <th className="text-right px-7 py-2.5 text-xs text-ck-text-muted font-normal tracking-[1px]">
                 RATING
               </th>
             </tr>
@@ -171,7 +171,7 @@ export default function HouseEdgeTable() {
       </div>
 
       <div className="px-7 py-4 text-right">
-        <span className="text-[10px] text-ck-text-faint">
+        <span className="text-xs text-ck-text-faint">
           CLICK ANY ROW FOR DETAILS · ALL EDGES SOURCED & VERIFIED
         </span>
       </div>
@@ -222,16 +222,16 @@ function BetRow({
         <tr>
           <td colSpan={5} className="p-0">
             <div className="mx-7 my-0 bg-ck-bg-tertiary border-l-[3px] border-ck-accent px-5 py-4">
-              <div className="text-[11px] text-ck-accent tracking-[1px] mb-2">
+              <div className="text-xs text-ck-accent tracking-[1px] mb-2">
                 ▼ {bet.game} · {bet.bet}
                 {bet.rules ? ` · ${bet.rules}` : ""}
               </div>
-              <div className="text-xs text-ck-text-secondary leading-relaxed space-y-2">
+              <div className="text-sm text-ck-text-secondary leading-relaxed space-y-2">
                 <p>{bet.description}</p>
                 <p className="text-ck-text-secondary">
                   <span className="text-ck-text-muted">TIP:</span> {bet.tip}
                 </p>
-                <p className="text-[10px] text-ck-text-faint">
+                <p className="text-xs text-ck-text-faint">
                   Source: {bet.source}
                 </p>
               </div>

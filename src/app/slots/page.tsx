@@ -34,10 +34,10 @@ export default function SlotsPage() {
     <div className="bg-ck-bg -mx-6 -mt-8">
       {/* Header */}
       <div className="border-b border-ck-border px-7 py-6">
-        <h1 className="text-base font-bold text-ck-accent tracking-[3px]">
+        <h1 className="text-xl font-bold text-ck-accent tracking-[3px]">
           SLOT OPTIMIZER
         </h1>
-        <span className="text-[11px] text-ck-text-dim">FIND YOUR EDGE</span>
+        <span className="text-xs text-ck-text-dim">FIND YOUR EDGE</span>
       </div>
 
       <SlotInputs

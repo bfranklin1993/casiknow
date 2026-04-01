@@ -23,13 +23,13 @@ export default function SessionStats({
     <div className="bg-ck-bg-secondary border-t border-ck-border-subtle px-7 py-5 flex justify-between items-start flex-wrap gap-4">
       <div className="flex gap-6">
         <div>
-          <div className="text-[10px] text-ck-text-muted tracking-[1px]">
+          <div className="text-xs text-ck-text-muted tracking-[1px]">
             HANDS
           </div>
           <div className="text-lg font-bold text-ck-text-primary">{hands}</div>
         </div>
         <div>
-          <div className="text-[10px] text-ck-text-muted tracking-[1px]">
+          <div className="text-xs text-ck-text-muted tracking-[1px]">
             ACCURACY
           </div>
           <div className={`text-lg font-bold ${accuracy >= 80 ? "text-ck-good" : accuracy >= 60 ? "text-ck-caution" : "text-ck-bad"}`}>
@@ -37,7 +37,7 @@ export default function SessionStats({
           </div>
         </div>
         <div>
-          <div className="text-[10px] text-ck-text-muted tracking-[1px]">
+          <div className="text-xs text-ck-text-muted tracking-[1px]">
             STREAK
           </div>
           <div className="text-lg font-bold text-ck-accent">{streak}</div>
@@ -45,11 +45,11 @@ export default function SessionStats({
       </div>
       {mostMissed.length > 0 && (
         <div>
-          <div className="text-[10px] text-ck-text-muted tracking-[1px] mb-1">
+          <div className="text-xs text-ck-text-muted tracking-[1px] mb-1">
             MOST MISSED
           </div>
           {mostMissed.slice(0, 3).map((m) => (
-            <div key={m.label} className="text-xs text-ck-bad">
+            <div key={m.label} className="text-sm text-ck-bad">
               {m.label} ({m.correct}/{m.total})
             </div>
           ))}

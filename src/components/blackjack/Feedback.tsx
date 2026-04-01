@@ -16,7 +16,7 @@ export default function Feedback({
   if (correct) {
     return (
       <div className="px-7 py-4 bg-[#1a2a1a] border-l-[3px] border-ck-good">
-        <div className="text-xs text-ck-good font-bold">
+        <div className="text-sm text-ck-good font-bold">
           ✓ CORRECT: {ACTION_LABELS[correctAction].toUpperCase()}
         </div>
       </div>
@@ -25,13 +25,13 @@ export default function Feedback({
 
   return (
     <div className="px-7 py-4 bg-[#2a1a1a] border-l-[3px] border-ck-bad">
-      <div className="text-xs text-ck-bad mb-1">
+      <div className="text-sm text-ck-bad mb-1">
         ✗ YOU CHOSE: {ACTION_LABELS[chosenAction].toUpperCase()}
       </div>
       <div className="text-sm text-ck-good mb-2">
         CORRECT PLAY: {ACTION_LABELS[correctAction].toUpperCase()}
       </div>
-      <div className="text-xs text-ck-text-secondary leading-relaxed">
+      <div className="text-sm text-ck-text-secondary leading-relaxed">
         {explanation}
       </div>
     </div>

@@ -38,7 +38,7 @@ export default function DealArea({
     <div className="bg-ck-felt py-10 px-7">
       {/* Dealer */}
       <div className="text-center mb-10">
-        <div className="text-[10px] text-white/50 tracking-[2px] mb-3">
+        <div className="text-xs text-white/50 tracking-[2px] mb-3">
           DEALER SHOWS
         </div>
         <div className="inline-flex gap-2">
@@ -54,7 +54,7 @@ export default function DealArea({
 
       {/* Player */}
       <div className="text-center mb-6">
-        <div className="text-[10px] text-white/50 tracking-[2px] mb-3">
+        <div className="text-xs text-white/50 tracking-[2px] mb-3">
           YOUR HAND — {isSoft ? "SOFT " : ""}
           {playerTotal}
         </div>
@@ -76,7 +76,7 @@ export default function DealArea({
               key={action}
               onClick={() => !isDisabled && onAction(action)}
               disabled={isDisabled}
-              className={`text-[13px] px-6 py-3 border font-bold tracking-[1px] transition-colors ${
+              className={`text-sm px-6 py-3 border font-bold tracking-[1px] transition-colors ${
                 isDisabled
                   ? "bg-black/20 text-white/30 border-white/10 cursor-not-allowed"
                   : "bg-black/40 text-white border-white/20 hover:bg-black/60"
@@ -90,7 +90,7 @@ export default function DealArea({
           <button
             onClick={() => !disabled && onAction("Rh")}
             disabled={disabled}
-            className={`text-[13px] px-6 py-3 border font-bold tracking-[1px] transition-colors ${
+            className={`text-sm px-6 py-3 border font-bold tracking-[1px] transition-colors ${
               disabled
                 ? "bg-black/20 text-white/30 border-white/10 cursor-not-allowed"
                 : "bg-black/40 text-white border-white/20 hover:bg-black/60"

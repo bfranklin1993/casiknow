@@ -153,7 +153,7 @@ export default function CrapsTableDiagram({
           );
         })}
       </svg>
-      <div className="text-[10px] text-white/30 text-center mt-3">
+      <div className="text-xs text-white/30 text-center mt-3">
         TAP ANY BET TO LEARN MORE
       </div>
     </div>

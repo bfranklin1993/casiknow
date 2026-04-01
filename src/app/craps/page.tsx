@@ -20,13 +20,13 @@ export default function CrapsPage() {
       {/* Header */}
       <div className="border-b border-ck-border px-7 py-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-base font-bold text-ck-accent tracking-[3px]">
+          <h1 className="text-xl font-bold text-ck-accent tracking-[3px]">
             CRAPS GUIDE
           </h1>
           <div className="flex gap-2">
             <button
               onClick={() => setMode("learn")}
-              className={`text-[11px] px-3 py-1.5 tracking-[1px] ${
+              className={`text-xs px-3 py-1.5 tracking-[1px] ${
                 mode === "learn"
                   ? "bg-ck-accent text-ck-bg font-bold"
                   : "bg-ck-border-subtle text-ck-text-secondary"
@@ -36,7 +36,7 @@ export default function CrapsPage() {
             </button>
             <button
               onClick={() => setMode("strategy")}
-              className={`text-[11px] px-3 py-1.5 tracking-[1px] ${
+              className={`text-xs px-3 py-1.5 tracking-[1px] ${
                 mode === "strategy"
                   ? "bg-ck-accent text-ck-bg font-bold"
                   : "bg-ck-border-subtle text-ck-text-secondary"
