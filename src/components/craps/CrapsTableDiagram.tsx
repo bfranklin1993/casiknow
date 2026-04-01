@@ -7,11 +7,19 @@ interface CrapsTableDiagramProps {
   onSelectBet: (id: string) => void;
 }
 
-function edgeColor(edge: number): string {
-  if (edge === 0) return "#4ade80";
-  if (edge <= 0.015) return "#4ade80";
-  if (edge <= 0.04) return "#eab308";
-  return "#ef4444";
+function zoneFill(edge: number, isPass: boolean): string {
+  if (isPass) return "rgba(74,222,128,0.22)";
+  if (edge <= 0.015) return "rgba(74,222,128,0.18)";
+  if (edge <= 0.04) return "rgba(234,179,8,0.18)";
+  return "rgba(239,68,68,0.22)";
+}
+
+function zoneStroke(edge: number, isPass: boolean, isSelected: boolean): string {
+  if (isSelected) return "#f5c542";
+  if (isPass) return "rgba(74,222,128,0.7)";
+  if (edge <= 0.015) return "rgba(74,222,128,0.5)";
+  if (edge <= 0.04) return "rgba(234,179,8,0.5)";
+  return "rgba(239,68,68,0.6)";
 }
 
 interface BetZone {
@@ -27,25 +35,25 @@ interface BetZone {
 
 const ZONES: BetZone[] = [
   { id: "dont-pass", label: "DON'T PASS", sublabel: "BAR ⚅⚅", x: 10, y: 10, w: 280, h: 50, edge: 0.0106 },
-  { id: "dont-come", label: "DON'T COME", sublabel: "", x: 300, y: 10, w: 280, h: 50, edge: 0.0106 },
+  { id: "dont-come", label: "DON'T COME", x: 300, y: 10, w: 280, h: 50, edge: 0.0106 },
   // Number boxes
-  { id: "place-4", label: "4", sublabel: "9:5", x: 10, y: 70, w: 90, h: 60, edge: 0.0667 },
-  { id: "place-5", label: "5", sublabel: "7:5", x: 105, y: 70, w: 90, h: 60, edge: 0.04 },
-  { id: "place-6", label: "6", sublabel: "7:6", x: 200, y: 70, w: 90, h: 60, edge: 0.0152 },
-  { id: "place-6", label: "8", sublabel: "7:6", x: 295, y: 70, w: 90, h: 60, edge: 0.0152 },
-  { id: "place-5", label: "9", sublabel: "7:5", x: 390, y: 70, w: 90, h: 60, edge: 0.04 },
-  { id: "place-4", label: "10", sublabel: "9:5", x: 485, y: 70, w: 90, h: 60, edge: 0.0667 },
+  { id: "place-4", label: "4", x: 10, y: 70, w: 90, h: 60, edge: 0.0667 },
+  { id: "place-5", label: "5", x: 105, y: 70, w: 90, h: 60, edge: 0.04 },
+  { id: "place-6", label: "6", x: 200, y: 70, w: 90, h: 60, edge: 0.0152 },
+  { id: "place-6", label: "8", x: 295, y: 70, w: 90, h: 60, edge: 0.0152 },
+  { id: "place-5", label: "9", x: 390, y: 70, w: 90, h: 60, edge: 0.04 },
+  { id: "place-4", label: "10", x: 485, y: 70, w: 90, h: 60, edge: 0.0667 },
   // Come
-  { id: "come", label: "COME", sublabel: "", x: 10, y: 140, w: 380, h: 50, edge: 0.0141 },
+  { id: "come", label: "COME", x: 10, y: 140, w: 380, h: 50, edge: 0.0141 },
   // Field
   { id: "field-3x", label: "FIELD", sublabel: "2,3,4,9,10,11,12", x: 400, y: 140, w: 180, h: 50, edge: 0.0278 },
   // Pass Line
-  { id: "pass", label: "PASS LINE", sublabel: "", x: 10, y: 200, w: 570, h: 55, edge: 0.0141 },
+  { id: "pass", label: "PASS LINE", x: 10, y: 200, w: 570, h: 55, edge: 0.0141 },
   // Props
-  { id: "hard-6-8", label: "HARD 6/8", sublabel: "9.09%", x: 10, y: 268, w: 138, h: 40, edge: 0.0909 },
-  { id: "hard-4-10", label: "HARD 4/10", sublabel: "11.11%", x: 153, y: 268, w: 138, h: 40, edge: 0.1111 },
-  { id: "any-7", label: "ANY 7", sublabel: "16.67%", x: 296, y: 268, w: 138, h: 40, edge: 0.1667 },
-  { id: "any-craps", label: "ANY CRAPS", sublabel: "11.11%", x: 439, y: 268, w: 141, h: 40, edge: 0.1111 },
+  { id: "hard-6-8", label: "HARD 6/8", x: 10, y: 268, w: 138, h: 40, edge: 0.0909 },
+  { id: "hard-4-10", label: "HARD 4/10", x: 153, y: 268, w: 138, h: 40, edge: 0.1111 },
+  { id: "any-7", label: "ANY 7", x: 296, y: 268, w: 138, h: 40, edge: 0.1667 },
+  { id: "any-craps", label: "ANY CRAPS", x: 439, y: 268, w: 141, h: 40, edge: 0.1111 },
 ];
 
 export default function CrapsTableDiagram({
@@ -53,7 +61,12 @@ export default function CrapsTableDiagram({
   onSelectBet,
 }: CrapsTableDiagramProps) {
   return (
-    <div className="bg-ck-felt p-6">
+    <div className="bg-ck-felt px-6 pt-5 pb-4">
+      {/* Intro text */}
+      <p className="text-xs text-white/60 text-center mb-4 tracking-wide">
+        Tap any area on the table to learn what it is and whether it&apos;s a smart bet.
+      </p>
+
       <svg
         viewBox="0 0 590 320"
         className="w-full max-w-2xl mx-auto"
@@ -84,7 +97,7 @@ export default function CrapsTableDiagram({
         {/* Bet zones */}
         {ZONES.map((zone, i) => {
           const isSelected = selectedBetId === zone.id;
-          const color = edgeColor(zone.edge);
+          const isPass = zone.id === "pass";
           return (
             <g
               key={`${zone.id}-${i}`}
@@ -96,32 +109,18 @@ export default function CrapsTableDiagram({
                 y={zone.y}
                 width={zone.w}
                 height={zone.h}
-                fill={
-                  zone.edge > 0.08
-                    ? "rgba(239,68,68,0.12)"
-                    : zone.id === "pass"
-                      ? "rgba(245,197,66,0.12)"
-                      : "rgba(255,255,255,0.06)"
-                }
-                stroke={
-                  isSelected
-                    ? "#f5c542"
-                    : zone.id === "pass"
-                      ? "rgba(245,197,66,0.3)"
-                      : zone.edge > 0.08
-                        ? "rgba(239,68,68,0.3)"
-                        : "rgba(255,255,255,0.15)"
-                }
-                strokeWidth={isSelected ? 2 : 1}
+                fill={zoneFill(zone.edge, isPass)}
+                stroke={zoneStroke(zone.edge, isPass, isSelected)}
+                strokeWidth={isSelected ? 2.5 : isPass ? 1.5 : 1}
                 rx="2"
               />
               <text
                 x={zone.x + zone.w / 2}
-                y={zone.y + (zone.sublabel ? zone.h / 2 - 4 : zone.h / 2 + 1)}
+                y={zone.y + (zone.sublabel ? zone.h / 2 - 5 : zone.h / 2 + 1)}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fill={zone.id === "pass" ? "#f5c542" : "#fff"}
-                fontSize={zone.h > 50 ? 13 : 11}
+                fill="#fff"
+                fontSize={zone.h > 50 ? 14 : 12}
                 fontWeight="bold"
                 letterSpacing="1"
               >
@@ -133,28 +132,58 @@ export default function CrapsTableDiagram({
                   y={zone.y + zone.h / 2 + 10}
                   textAnchor="middle"
                   dominantBaseline="middle"
-                  fill="rgba(255,255,255,0.4)"
-                  fontSize={8}
+                  fill="rgba(255,255,255,0.45)"
+                  fontSize={8.5}
                 >
                   {zone.sublabel}
                 </text>
               )}
-              {/* Edge label */}
-              <text
-                x={zone.x + zone.w - 6}
-                y={zone.y + 12}
-                textAnchor="end"
-                fill={color}
-                fontSize={8}
-              >
-                {(zone.edge * 100).toFixed(2)}%
-              </text>
+              {/* START HERE indicator on PASS LINE */}
+              {isPass && (
+                <>
+                  <rect
+                    x={zone.x + zone.w - 110}
+                    y={zone.y + 10}
+                    width={100}
+                    height={22}
+                    rx="3"
+                    fill="rgba(74,222,128,0.25)"
+                    stroke="rgba(74,222,128,0.7)"
+                    strokeWidth="1"
+                  />
+                  <text
+                    x={zone.x + zone.w - 60}
+                    y={zone.y + 21}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="#4ade80"
+                    fontSize={9}
+                    fontWeight="bold"
+                    letterSpacing="1"
+                  >
+                    ★ START HERE
+                  </text>
+                </>
+              )}
             </g>
           );
         })}
       </svg>
-      <div className="text-xs text-white/30 text-center mt-3">
-        TAP ANY BET TO LEARN MORE
+
+      {/* Legend */}
+      <div className="flex justify-center gap-4 mt-4 flex-wrap">
+        <span className="text-xs text-white/70 flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-green-400/60 border border-green-400/80" />
+          GOOD BET
+        </span>
+        <span className="text-xs text-white/70 flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-yellow-400/50 border border-yellow-400/70" />
+          OK
+        </span>
+        <span className="text-xs text-white/70 flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-red-500/60 border border-red-500/80" />
+          SUCKER BET
+        </span>
       </div>
     </div>
   );
