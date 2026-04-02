@@ -7,6 +7,18 @@ import {
   VOLATILITY_COLORS,
 } from "@/data/slot-games";
 
+function manufacturerColor(mfr: string): string {
+  switch (mfr) {
+    case "Aristocrat": return "#c45c3e";
+    case "IGT": return "#2563eb";
+    case "Light & Wonder": return "#7c3aed";
+    case "Konami": return "#0891b2";
+    case "Everi": return "#059669";
+    case "Bally": return "#d97706";
+    default: return "#666666";
+  }
+}
+
 interface GameCardProps {
   game: SlotGame;
 }
@@ -31,9 +43,12 @@ export default function GameCard({ game }: GameCardProps) {
       {/* Card Header */}
       <div className="px-5 py-4">
         <div className="flex items-start gap-4 mb-3">
-          {/* Icon */}
-          <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-ck-bg border border-ck-border-subtle text-3xl leading-none rounded-sm">
-            {game.icon}
+          {/* Manufacturer badge */}
+          <div
+            className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-sm font-bold tracking-wider text-ck-bg rounded-sm"
+            style={{ backgroundColor: manufacturerColor(game.manufacturer) }}
+          >
+            {game.manufacturer.slice(0, 3).toUpperCase()}
           </div>
 
           {/* Name + manufacturer + volatility */}
