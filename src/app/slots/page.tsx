@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   DENOMINATION_DATA,
   DEFAULT_SPINS_PER_HOUR,
@@ -34,10 +35,26 @@ export default function SlotsPage() {
     <div className="bg-ck-bg -mx-6 -mt-8">
       {/* Header */}
       <div className="border-b border-ck-border px-7 py-6">
-        <h1 className="text-xl font-bold text-ck-accent tracking-[3px]">
-          SLOT OPTIMIZER
-        </h1>
-        <span className="text-xs text-ck-text-dim">FIND YOUR EDGE</span>
+        <div className="flex items-center justify-between gap-4 flex-wrap">
+          <div>
+            <h1 className="text-xl font-bold text-ck-accent tracking-[3px]">
+              SLOT OPTIMIZER
+            </h1>
+            <span className="text-xs text-ck-text-dim">FIND YOUR EDGE</span>
+          </div>
+          {/* Tab nav */}
+          <div className="flex items-center gap-0">
+            <div className="px-4 py-2 text-xs tracking-[1px] border border-ck-accent bg-ck-bg-tertiary text-ck-accent">
+              OPTIMIZER
+            </div>
+            <Link
+              href="/slots/games"
+              className="px-4 py-2 text-xs tracking-[1px] border border-ck-border-subtle text-ck-text-muted hover:text-ck-text-secondary hover:border-ck-border transition-colors"
+            >
+              GAME GUIDE
+            </Link>
+          </div>
+        </div>
       </div>
 
       <SlotInputs

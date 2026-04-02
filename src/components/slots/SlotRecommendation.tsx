@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { type DenominationData } from "@/data/slot-math";
+import { getGamesByDenomination, VOLATILITY_LABELS, VOLATILITY_COLORS } from "@/data/slot-games";
 import {
   type SlotGoal,
   defaultBetSize,
@@ -11,17 +13,6 @@ interface SlotRecommendationProps {
   goal: SlotGoal;
 }
 
-const POPULAR_GAMES: { name: string; denoms: string; notes?: string }[] = [
-  { name: "Buffalo Gold", denoms: "$0.01–$0.05" },
-  { name: "Lightning Link", denoms: "$0.01–$0.05" },
-  { name: "Double Diamond", denoms: "$1.00" },
-  { name: "Blazing 7s", denoms: "$1.00–$5.00" },
-  { name: "Wheel of Fortune", denoms: "$0.25–$1.00" },
-  { name: "Quick Hit", denoms: "$0.01–$0.25" },
-  { name: "Triple Diamond", denoms: "$1.00–$5.00" },
-  { name: "Fu Dai Lian Lian", denoms: "$0.01–$0.05" },
-];
-
 export default function SlotRecommendation({
   recommended,
   antiRec,
@@ -30,6 +21,8 @@ export default function SlotRecommendation({
   const recBet = defaultBetSize(recommended.denomination);
   const antiBet = defaultBetSize(antiRec.denomination);
   const reason = recommendationReason(goal, recommended, antiRec);
+
+  const matchedGames = getGamesByDenomination(recommended.label).slice(0, 6);
 
   return (
     <div className="px-7 py-8 border-b border-ck-border-subtle">
@@ -77,27 +70,59 @@ export default function SlotRecommendation({
         </div>
       </div>
 
-      {/* Popular Games */}
+      {/* Popular Games — from real database */}
       <div>
-        <div className="text-xs text-ck-accent tracking-[1px] mb-1">
-          POPULAR GAMES
+        <div className="flex items-baseline justify-between mb-1">
+          <div className="text-xs text-ck-accent tracking-[1px]">
+            POPULAR GAMES
+          </div>
+          <Link
+            href="/slots/games"
+            className="text-xs text-ck-text-faint tracking-[1px] hover:text-ck-accent transition-colors"
+          >
+            VIEW ALL GAMES →
+          </Link>
         </div>
         <div className="text-xs text-ck-text-faint tracking-[1px] mb-4">
-          EXAMPLE MACHINES — DENOMINATIONS VARY BY CASINO
+          COMMON ON {recommended.label} FLOORS — DENOMINATIONS VARY BY CASINO
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {POPULAR_GAMES.map((game) => (
-            <div
-              key={game.name}
-              className="bg-ck-bg-tertiary border border-ck-border-subtle px-4 py-3"
-            >
-              <div className="text-xs font-bold text-ck-text-primary mb-1">
-                {game.name}
-              </div>
-              <div className="text-xs text-ck-text-muted">{game.denoms}</div>
-            </div>
-          ))}
-        </div>
+        {matchedGames.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {matchedGames.map((game) => {
+              const volLabel = VOLATILITY_LABELS[game.volatility];
+              const volColor = VOLATILITY_COLORS[game.volatility];
+              return (
+                <Link
+                  key={game.id}
+                  href="/slots/games"
+                  className="bg-ck-bg-tertiary border border-ck-border-subtle px-4 py-3 hover:border-ck-border transition-colors block"
+                >
+                  <div className="text-xs font-bold text-ck-text-primary mb-1 leading-tight">
+                    {game.name}
+                  </div>
+                  <div className="text-xs text-ck-text-faint mb-1.5">
+                    {game.manufacturer}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-ck-accent font-bold">
+                      {(game.rtpRange[0] * 100).toFixed(1)}–{(game.rtpRange[1] * 100).toFixed(1)}%
+                    </span>
+                    <span className={`text-xs border px-1.5 py-0 ${volColor}`}>
+                      {volLabel}
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-xs text-ck-text-faint">
+            No games in database for this denomination.{" "}
+            <Link href="/slots/games" className="text-ck-accent hover:underline">
+              Browse all games →
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
