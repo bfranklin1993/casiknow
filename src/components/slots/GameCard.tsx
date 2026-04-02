@@ -19,37 +19,43 @@ export default function GameCard({ game }: GameCardProps) {
   const volLabel = VOLATILITY_LABELS[game.volatility];
   const volColor = VOLATILITY_COLORS[game.volatility];
 
-  const categoryLabel = game.category.toUpperCase();
-
   return (
     <div
-      className={`border bg-ck-bg-tertiary transition-colors cursor-pointer ${
-        expanded ? "border-ck-accent" : "border-ck-border-subtle hover:border-ck-border"
+      className={`border bg-ck-bg-tertiary transition-all cursor-pointer group ${
+        expanded
+          ? "border-ck-accent"
+          : "border-ck-border-subtle hover:border-ck-border hover:bg-ck-bg"
       }`}
       onClick={() => setExpanded((v) => !v)}
     >
       {/* Card Header */}
       <div className="px-5 py-4">
-        <div className="flex items-start justify-between gap-3 mb-3">
+        <div className="flex items-start gap-4 mb-3">
+          {/* Icon */}
+          <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-ck-bg border border-ck-border-subtle text-3xl leading-none rounded-sm">
+            {game.icon}
+          </div>
+
+          {/* Name + manufacturer + volatility */}
           <div className="flex-1 min-w-0">
-            <div className="text-base font-bold text-ck-text-primary leading-tight mb-1 truncate">
-              {game.name}
+            <div className="flex items-start justify-between gap-2 mb-1">
+              <div className="text-base font-bold text-ck-text-primary leading-tight">
+                {game.name}
+              </div>
+              <div
+                className={`flex-shrink-0 border px-2 py-0.5 text-xs font-bold tracking-[1px] ${volColor}`}
+              >
+                {volLabel}
+              </div>
             </div>
             <div className="text-xs text-ck-text-muted tracking-[1px]">
               {game.manufacturer.toUpperCase()}
             </div>
           </div>
-          <div className="flex-shrink-0 text-right">
-            <div
-              className={`inline-block border px-2 py-0.5 text-xs font-bold tracking-[1px] ${volColor}`}
-            >
-              {volLabel}
-            </div>
-          </div>
         </div>
 
         {/* Key Stats Row */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3 mb-3">
           <div>
             <div className="text-xs text-ck-text-faint tracking-[1px] mb-0.5">
               RTP RANGE
@@ -64,25 +70,21 @@ export default function GameCard({ game }: GameCardProps) {
             </div>
             <div className="text-sm text-ck-text-secondary">{game.typicalDenomination}</div>
           </div>
-          <div>
-            <div className="text-xs text-ck-text-faint tracking-[1px] mb-0.5">
-              PAYLINES
-            </div>
-            <div className="text-sm text-ck-text-secondary">{game.paylines}</div>
+        </div>
+
+        {/* Strip Presence */}
+        <div className="border-l-2 border-ck-border pl-3 mb-3">
+          <div className="text-xs text-ck-text-faint tracking-[1px] mb-0.5">
+            ON THE STRIP
           </div>
-          <div>
-            <div className="text-xs text-ck-text-faint tracking-[1px] mb-0.5">
-              TYPE
-            </div>
-            <div className="text-xs text-ck-text-muted tracking-[1px]">
-              {categoryLabel}
-            </div>
+          <div className="text-xs text-ck-text-secondary leading-relaxed">
+            {game.stripPresence}
           </div>
         </div>
 
         {/* Expand indicator */}
-        <div className="mt-3 flex items-center gap-1">
-          <div className="text-xs text-ck-text-faint tracking-[1px]">
+        <div className="flex items-center gap-1">
+          <div className="text-xs text-ck-text-faint tracking-[1px] group-hover:text-ck-text-muted transition-colors">
             {expanded ? "▲ LESS" : "▼ FULL DETAILS"}
           </div>
         </div>
@@ -129,6 +131,12 @@ export default function GameCard({ game }: GameCardProps) {
           <div className="grid grid-cols-2 gap-3 pt-1">
             <div>
               <div className="text-xs text-ck-text-faint tracking-[1px] mb-0.5">
+                PAYLINES
+              </div>
+              <div className="text-xs text-ck-text-secondary">{game.paylines}</div>
+            </div>
+            <div>
+              <div className="text-xs text-ck-text-faint tracking-[1px] mb-0.5">
                 MAX BET
               </div>
               <div className="text-xs text-ck-text-secondary">{game.maxBet}</div>
@@ -138,6 +146,14 @@ export default function GameCard({ game }: GameCardProps) {
                 RTP SOURCE
               </div>
               <div className="text-xs text-ck-text-muted">{game.rtpSource}</div>
+            </div>
+            <div>
+              <div className="text-xs text-ck-text-faint tracking-[1px] mb-0.5">
+                TYPE
+              </div>
+              <div className="text-xs text-ck-text-muted tracking-[1px]">
+                {game.category.toUpperCase()}
+              </div>
             </div>
           </div>
         </div>

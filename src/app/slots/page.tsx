@@ -6,6 +6,7 @@ import {
   DENOMINATION_DATA,
   DEFAULT_SPINS_PER_HOUR,
 } from "@/data/slot-math";
+import { SLOT_GAMES } from "@/data/slot-games";
 import {
   type SlotGoal,
   recommendDenomination,
@@ -33,6 +34,27 @@ export default function SlotsPage() {
 
   return (
     <div className="bg-ck-bg -mx-6 -mt-8">
+      {/* Vegas Strip Game Guide Banner */}
+      <div className="border-b border-ck-border bg-ck-bg-secondary px-7 py-7">
+        <div className="flex items-center justify-between gap-6 flex-wrap">
+          <div>
+            <div className="text-xs text-ck-text-faint tracking-[2px] mb-1">FEATURED</div>
+            <h2 className="text-2xl font-bold text-ck-text-primary tracking-[3px] mb-1">
+              VEGAS STRIP SLOT GUIDE
+            </h2>
+            <p className="text-sm text-ck-text-secondary max-w-sm">
+              Know what you&apos;re playing before you sit down — every major machine on the Strip, with real RTP ranges and where to find them.
+            </p>
+          </div>
+          <Link
+            href="/slots/games"
+            className="flex-shrink-0 px-6 py-3 bg-ck-accent text-ck-bg text-sm font-bold tracking-[2px] hover:bg-ck-text-primary transition-colors"
+          >
+            BROWSE {SLOT_GAMES.length} GAMES →
+          </Link>
+        </div>
+      </div>
+
       {/* Header */}
       <div className="border-b border-ck-border px-7 py-6">
         <div className="flex items-center justify-between gap-4 flex-wrap">

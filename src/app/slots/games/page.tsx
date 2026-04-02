@@ -70,7 +70,7 @@ export default function SlotGamesPage() {
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div>
             <h1 className="text-xl font-bold text-ck-accent tracking-[3px]">
-              SLOT GAME GUIDE
+              VEGAS STRIP SLOT GUIDE
             </h1>
             <span className="text-xs text-ck-text-dim">
               {SLOT_GAMES.length} GAMES — REAL RTP RANGES
@@ -89,6 +89,13 @@ export default function SlotGamesPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Strip intro note */}
+      <div className="border-b border-ck-border-subtle px-7 py-4 bg-ck-bg-secondary">
+        <p className="text-sm text-ck-text-secondary leading-relaxed">
+          These are the most common slot machines you&apos;ll find on the Las Vegas Strip — what they pay, how they play, and where to find them.
+        </p>
       </div>
 
       {/* Search + Filters */}
