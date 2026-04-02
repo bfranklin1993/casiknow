@@ -19,6 +19,34 @@ function manufacturerColor(mfr: string): string {
   }
 }
 
+function GameImage({ game }: { game: SlotGame }) {
+  const [imgError, setImgError] = useState(false);
+
+  if (game.image && !imgError) {
+    return (
+      <div className="flex-shrink-0 w-16 h-12 overflow-hidden border border-ck-border-subtle rounded-sm">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={game.image}
+          alt={game.name}
+          className="w-full h-full object-cover"
+          onError={() => setImgError(true)}
+        />
+      </div>
+    );
+  }
+
+  // Fallback: manufacturer monogram badge
+  return (
+    <div
+      className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-sm font-bold tracking-wider text-ck-bg rounded-sm"
+      style={{ backgroundColor: manufacturerColor(game.manufacturer) }}
+    >
+      {game.manufacturer.slice(0, 3).toUpperCase()}
+    </div>
+  );
+}
+
 interface GameCardProps {
   game: SlotGame;
 }
@@ -43,13 +71,8 @@ export default function GameCard({ game }: GameCardProps) {
       {/* Card Header */}
       <div className="px-5 py-4">
         <div className="flex items-start gap-4 mb-3">
-          {/* Manufacturer badge */}
-          <div
-            className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-sm font-bold tracking-wider text-ck-bg rounded-sm"
-            style={{ backgroundColor: manufacturerColor(game.manufacturer) }}
-          >
-            {game.manufacturer.slice(0, 3).toUpperCase()}
-          </div>
+          {/* Game image with fallback badge */}
+          <GameImage game={game} />
 
           {/* Name + manufacturer + volatility */}
           <div className="flex-1 min-w-0">

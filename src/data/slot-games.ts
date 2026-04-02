@@ -14,6 +14,7 @@ export interface SlotGame {
   popularity: number;
   rtpSource: string;
   stripPresence: string;
+  image: string;
 }
 
 // RTP ranges are manufacturer-stated theoretical ranges from PAR sheets and UK regulatory disclosures.
@@ -37,6 +38,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 10,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Found at nearly every casino on the Strip — a floor staple at Caesars, MGM Grand, Bellagio, and beyond",
+    image: "/images/slots/buffalo.png",
   },
   {
     id: "buffalo-gold",
@@ -55,6 +57,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 10,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Dominant presence Strip-wide — you'll find Buffalo Gold at virtually every property from Wynn to the Linq",
+    image: "/images/slots/buffalo-gold.png",
   },
   {
     id: "lightning-link",
@@ -73,6 +76,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 9,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Major presence at Bellagio, Aria, MGM Grand, and Caesars Palace — look for the linked bank of machines",
+    image: "/images/slots/lightning-link.jpg",
   },
   {
     id: "dragon-link",
@@ -91,6 +95,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 8,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Strong presence at Wynn, Encore, and Palazzo — often banked alongside Lightning Link",
+    image: "/images/slots/dragon-link.jpg",
   },
   {
     id: "5-dragons",
@@ -109,6 +114,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 6,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Common in mid-tier Strip properties; less frequent at top-tier resorts but reliably found at The Strat and Excalibur",
+    image: "/images/slots/5-dragons.png",
   },
   {
     id: "wheres-the-gold",
@@ -127,6 +133,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 5,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Less common on the Strip — more frequently found at off-Strip locals casinos like Boulder Station and Green Valley Ranch",
+    image: "/images/slots/wheres-the-gold.png",
   },
   {
     id: "more-chilli",
@@ -145,6 +152,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Regular presence at mid-Strip properties; frequently seen at Paris, Bally's, and Flamingo",
+    image: "/images/slots/more-chilli.png",
   },
 
   // ---- IGT ----
@@ -165,6 +173,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "High-limit rooms and classic sections at most Strip properties — Caesars Palace and MGM Grand have dedicated classic slots areas",
+    image: "/images/slots/double-diamond.webp",
   },
   {
     id: "triple-diamond",
@@ -183,6 +192,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Found alongside Double Diamond in classic sections — look for dedicated banks near the entrance at Harrah's and Horseshoe",
+    image: "/images/slots/triple-diamond.webp",
   },
   {
     id: "wheel-of-fortune",
@@ -201,6 +211,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 9,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Iconic presence Strip-wide — the oversized Wheel of Fortune units are a landmark at Caesars Palace and Harrah's",
+    image: "/images/slots/wheel-of-fortune.jpg",
   },
   {
     id: "cleopatra",
@@ -219,6 +230,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 8,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "A floor staple at Luxor (fitting the theme) and widely available at Excalibur, MGM Grand, and Mandalay Bay",
+    image: "/images/slots/cleopatra.webp",
   },
   {
     id: "texas-tea",
@@ -237,6 +249,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 6,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Less common on the Strip today — better odds of finding it at off-Strip casinos and locals spots",
+    image: "/images/slots/texas-tea.webp",
   },
   {
     id: "lobstermania",
@@ -255,6 +268,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 6,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Available Strip-wide in penny sections — especially common at Treasure Island and The Linq",
+    image: "/images/slots/lobstermania.jpg",
   },
   {
     id: "megabucks",
@@ -273,6 +287,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Progressive linked across Nevada — look for the large standalone units near the cage at Bellagio, MGM Grand, and Caesars Palace",
+    image: "/images/slots/megabucks.png",
   },
 
   // ---- LIGHT & WONDER (SG) ----
@@ -293,6 +308,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 9,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Prominent at Wynn, Encore, and Venetian — often banked with Dancing Drums in Asian-themed sections",
+    image: "/images/slots/88-fortunes.jpg",
   },
   {
     id: "dancing-drums",
@@ -311,6 +327,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 8,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Widely available Strip-wide — a fixture at Aria, Bellagio, and Cosmopolitan alongside 88 Fortunes banks",
+    image: "/images/slots/dancing-drums.jpg",
   },
   {
     id: "fu-dai-lian-lian",
@@ -329,6 +346,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Strong showing at Wynn and Venetian — the Panda variant is most common; look for the distinctive red cabinet",
+    image: "/images/slots/fu-dai-lian-lian.jpg",
   },
   {
     id: "quick-hit",
@@ -347,6 +365,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 8,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Common across the Strip in penny sections — you'll find Quick Hit Platinum at most MGM and Caesars properties",
+    image: "/images/slots/quick-hit.jpg",
   },
   {
     id: "monopoly",
@@ -365,6 +384,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Available at most Strip properties — newer variants like Monopoly Mega Movers are replacing older cabinets at Caesars and Horseshoe",
+    image: "/images/slots/monopoly-slots.jpg",
   },
 
   // ---- KONAMI ----
@@ -385,6 +405,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Reliable presence at Palazzo, Venetian, and Park MGM — often found near other Konami titles in dedicated banks",
+    image: "/images/slots/china-shores.webp",
   },
   {
     id: "chili-chili-fire",
@@ -403,6 +424,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 6,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Growing presence at Cosmo, Aria, and Park MGM — newer Konami title replacing some older cabinet slots",
+    image: "/images/slots/chili-chili-fire.webp",
   },
   {
     id: "lotus-land",
@@ -421,6 +443,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 5,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Less common on the Strip — more of a regional casino find; occasionally spotted at Paris and Bally's",
+    image: "/images/slots/lotus-land.webp",
   },
 
   // ---- EVERI / OTHER ----
@@ -441,6 +464,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "A floor staple Strip-wide — dollar and five-dollar Blazing 7s banks are fixtures at Flamingo, Harrah's, and Horseshoe",
+    image: "/images/slots/blazing-7s.jpg",
   },
   {
     id: "lock-it-link",
@@ -459,6 +483,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 7,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "Solid Strip presence — found at Cosmopolitan, Park MGM, and New York-New York in linked progressive banks",
+    image: "/images/slots/lock-it-link.png",
   },
   {
     id: "cash-machine",
@@ -477,6 +502,7 @@ export const SLOT_GAMES: SlotGame[] = [
     popularity: 6,
     rtpSource: "Manufacturer theoretical range",
     stripPresence: "More common at off-Strip locals casinos — occasionally found at Tropicana and Luxor on the Strip",
+    image: "",
   },
 ];
 
